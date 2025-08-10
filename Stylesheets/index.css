@@ -1,0 +1,138 @@
+:root {
+  --dark1: #ffffff;
+  --dark2: #f0f0f0;
+  --dark3: #e0e0e0;
+  --dark4: #d0d0d0;
+  --dark5: #c0c0c0;
+
+  --text-color: #000000;
+
+  --border-color-input: #6c757d;
+  --tag-color: #529cf0;
+  --list-row-hover: #529cf0;
+  --ok-btn-color: #4caf50;
+  --ok-btn-color-hover: #41973e;
+  --not-ok-btn-color: #f44336;
+  --not-ok-btn-color-hover: #e53935;
+  --grid-clms: 1fr 5fr 3fr 1fr 1fr 1fr;
+  --header-height: 40px;
+  --footer-height: 30px;
+  --border-rad: 16px;
+  --buttons-width: 35px;
+  --buttons-responsive-width: 30px;
+  --profile-pic-w: 64px;
+  --box-shadow-effects: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
+    0 1.5px 6px 0 rgba(60, 60, 60, 0.11);
+
+  /* For Tags */
+  --family-tag: var(--not-ok-btn-color);
+  --school-tag: var(--tag-color);
+  --work-tag: var(--ok-btn-color);
+  --friend-tag: #dfe229;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
+  font-family: "Inter";
+  color: var(--text-color);
+  background-color: var(--dark1);
+}
+
+#wrapper{
+  border: rgb(73, 186, 238) solid 2px;
+  width: 35vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  width: 100%;
+  height: 20%;
+}
+
+#titles{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-decoration: underline;
+}
+
+main{
+  height: 80%;
+  width: 100%;
+  padding: 0 2% 0 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* justify-content: space-between; */
+}
+
+#client-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.labels-inputs{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+#report-period{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#radio-btns-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 60%;
+}
+
+#date-picker{
+  width: 40%;
+}
+
+#transactions-details{
+  border: rgb(71, 11, 11) solid 2px;
+}
+
+#calculator-data{
+  border: rgb(11, 71, 19) solid 2px;
+}
+
+#print-deduction{
+  border: rgb(11, 52, 71) solid 2px;
+}

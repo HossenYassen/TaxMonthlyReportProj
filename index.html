@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Stylesheets/index.css">
+    <title>Tax Report Generator</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <div id="titles">
+                <h1>גסאן יאסין חשבונאי יועץ מס מוסמך</h1>
+                <h2>דיווחים תקופתיים לרשויות המס</h2>
+            </div>
+        </header>
+        <main>
+            <div id="client-info">
+                <div id="client-info-inputs-div">
+                    <div class="labels-inputs">
+                        <label for="name-input">שם לקוח</label>
+                        <input type="text" id="name-input" placeholder="הזן שם לקוח...">
+                    </div>
+                    <div class="labels-inputs">
+                        <label for="case-num-input">מספר תיק</label>
+                        <input type="text" id="case-num-input" placeholder="הזן מספר תיק">
+                    </div>
+                </div>
+                <button id="print">הדפס</button>
+            </div>
+
+            <!-- Report Date -->
+            <div id="report-period">
+                <div id="radio-btns-div">
+                    <span>דיווח למע"מ</span>
+                    <div class="radio-labels-inputs">
+                        <input type="radio" id="monthly-radio" value="1" name="choice">
+                        <label for="monthly-radio">חודשי</label>
+                    </div>
+                    <div class="radio-labels-inputs">
+                        <input type="radio" id="2-months-radio" value="2" name="choice">
+                        <label for="name-input">דו חודשי</label>
+                    </div>
+                </div>
+                <div id="date-picker" class="labels-inputs">
+                    <label for="name-input">תאריך</label>
+                    <input type="month" id="date-picker-input">
+                </div>
+            </div>
+
+
+            <div id="transactions-details">Trans Details</div>
+            <div id="calculator-data">Calculator Data</div>
+            <div id="print-deduction">Print</div>
+        </main>
+    </div>
+</body>
+
+</html>
