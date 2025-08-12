@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Stylesheets/index.css">
+    <link rel="stylesheet" href="./Stylesheets/calculator.css">
     <title>Tax Report Generator</title>
 </head>
 
@@ -32,7 +33,7 @@
             </div>
 
             <!-- Report Date -->
-             <div id="date-print" style="display: none;">123</div>
+            <div id="date-print" style="display: none;">123</div>
             <div id="report-period">
                 <div id="radio-btns-div">
                     <span>דיווח למע"מ</span>
@@ -132,6 +133,152 @@
             </div>
         </main>
     </div>
+
+    <fieldset id="calulator-wrapper">
+        <legend>מחשבון</legend>
+        <fieldset>
+            <legend>הכנסות</legend>
+            <div class="output-section">
+                <div class="output-label-div">
+                    <label for="income-out1">סה"כ הכנסות חייבות כולל מע"מ</label>
+                    <output id="income-out1">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="income-out2">סה"כ הכנסות חייבות ללא מע"מ</label>
+                    <output id="income-out2">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="income-out3">מע"מ הכנסות (18%)</label>
+                    <output id="income-out3">0.00</output>
+                </div>
+            </div>
+            <hr>
+            <ol id="income-ol">
+                <li class="calc-inputs">
+                    <span class="index">1. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+                <li class="calc-inputs">
+                    <span class="index">2. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+                <li class="calc-inputs">
+                    <span class="index">3. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset id="outcomes">
+            <legend>הוצאות</legend>
+            <div class="output-section">
+                <div class="output-label-div">
+                    <label for="outcome-out1">סה"כ הוצאות חייבות כולל מע"מ</label>
+                    <output id="outcome-out1">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="outcome-out2">סה"כ הוצאות חייבות ללא מע"מ</label>
+                    <output id="outcome-out2">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="outcome-out3">מע"מ הוצאות (18%)</label>
+                    <output id="outcome-out3">0.00</output>
+                </div>
+            </div>
+            <hr>
+            <div id="outcomes-input-section">
+                <ol id="outcomes-ol">
+                    <li class="calc-inputs">
+                        <span class="index">1. </span>
+                        <input type="text" placeholder="0.00">
+                    </li>
+                    <li class="calc-inputs">
+                        <span class="index">2. </span>
+                        <input type="text" placeholder="0.00">
+                    </li>
+                    <li class="calc-inputs">
+                        <span class="index">3. </span>
+                        <input type="text" placeholder="0.00">
+                    </li>
+                </ol>
+                <fieldset id="vichels-outcoms">
+                    <legend>הוצאות רכב</legend>
+                    <div class="output-label-div">
+                        <label for="vichels-outcoms-out3">מע"מ הוצאות (18%)</label>
+                        <output id="vichels-outcoms-out3">0.00</output>
+                    </div>
+                    <ol id="vichels-outcoms-ol">
+                        <li class="calc-inputs">
+                            <span class="index">1. </span>
+                            <input type="text" placeholder="0.00">
+                        </li>
+                        <li class="calc-inputs">
+                            <span class="index">2. </span>
+                            <input type="text" placeholder="0.00">
+                        </li>
+                        <li class="calc-inputs">
+                            <span class="index">3. </span>
+                            <input type="text" placeholder="0.00">
+                        </li>
+                    </ol>
+                </fieldset>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>הוצאות ציוד</legend>
+            <div class="output-section">
+                <div class="output-label-div">
+                    <label for="items-outcomes-out1">סה"כ הוצאות ציוד חייבות כולל מע"מ</label>
+                    <output id="items-outcomes-out1">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="items-outcomes-out2">סה"כ הוצאות ציוד חייבות ללא מע"מ</label>
+                    <output id="items-outcomes-out2">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="items-outcomes-out3">מע"מ הוצאות ציוד (18%)</label>
+                    <output id="items-outcomes-out3">0.00</output>
+                </div>
+            </div>
+            <hr>
+            <ol id="items-outcomes-ol">
+                <li class="calc-inputs">
+                    <span class="index">1. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+                <li class="calc-inputs">
+                    <span class="index">2. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+                <li class="calc-inputs">
+                    <span class="index">3. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>סיכום</legend>
+            <div class="output-section">
+                <div class="output-label-div">
+                    <label for="summary-out1">מע"מ עסקאות (18%)</label>
+                    <output id="summary-out1">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="summary-out2">מע"מ תשומות רגילות אחרות (18%)</label>
+                    <output id="summary-out2">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="summary-out3">מע"מ על נכסים קבועים (18%)</label>
+                    <output id="summary-out3">0.00</output>
+                </div>
+                <div class="output-label-div">
+                    <label for="summary-out4">מע"מ סכום לתשלום / החזר (18%)</label>
+                    <output id="summary-out4">0.00</output>
+                </div>
+            </div>
+            <hr>
+            <button id="print-calc-data">הדפסת נתוני המחשבון</button>
+        </fieldset>
+    </fieldset>
 </body>
 
 </html>

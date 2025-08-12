@@ -1,0 +1,130 @@
+#calulator-wrapper {
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  height: 100vh;
+  font-size: var(--font-size);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+fieldset {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1% 0 1% 0;
+  gap: 20px;
+  height: 100%;
+  min-height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#vichels-outcoms {
+  width: 50%;
+}
+
+hr {
+  width: 80%;
+}
+
+#outcomes {
+  width: 40%;
+}
+
+legend {
+  margin-right: 10px;
+  padding: 0 10px 0 10px;
+}
+
+.output-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.output-label-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+#calulator-wrapper label {
+  text-decoration: none;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.calc-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.calc-inputs > span {
+  font-size: var(--font-size);
+}
+
+.calc-inputs > input {
+  width: 80%;
+}
+
+.calc-inputs > input:focus {
+  outline: none;
+  border-color: var(--list-row-hover);
+}
+
+#outcomes-ol {
+  margin-top: 170px;
+}
+
+#outcomes-input-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"], input[type="month"], textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-rad);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+#open-print + label {
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+label:hover {
+  color: #4caf50;
+}
+
