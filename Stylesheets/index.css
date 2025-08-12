@@ -6,7 +6,7 @@
   --dark5: #c0c0c0;
 
   --text-color: #000000;
-
+  --font-size : 1.1rem;
   --border-color-input: #6c757d;
   --tag-color: #529cf0;
   --list-row-hover: #529cf0;
@@ -23,12 +23,6 @@
   --profile-pic-w: 64px;
   --box-shadow-effects: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
     0 1.5px 6px 0 rgba(60, 60, 60, 0.11);
-
-  /* For Tags */
-  --family-tag: var(--not-ok-btn-color);
-  --school-tag: var(--tag-color);
-  --work-tag: var(--ok-btn-color);
-  --friend-tag: #dfe229;
 }
 
 *,
@@ -50,32 +44,33 @@ body {
   align-items: center;
   min-height: 100vh;
   height: 100%;
-  font-family: "Inter";
   color: var(--text-color);
   background-color: var(--dark1);
 }
 
-#wrapper{
-  border: rgb(73, 186, 238) solid 2px;
-  width: 35vw;
-  height: 80vh;
+#report-wrapper {
+  border: black 2px solid;
+  width: 45vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 3vh;
+  padding-top: 1%;
+  overflow-y: auto;
+  font-size: var(--font-size);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 2vh;
   width: 100%;
-  height: 20%;
 }
 
-#titles{
+#titles {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,7 +79,7 @@ header {
   text-decoration: underline;
 }
 
-main{
+main {
   height: 80%;
   width: 100%;
   padding: 0 2% 0 2%;
@@ -94,26 +89,30 @@ main{
   /* justify-content: space-between; */
 }
 
-#client-info{
+#client-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.labels-inputs{
+.labels-inputs {
   display: grid;
   grid-template-columns: 1fr 3fr;
   column-gap: 5px;
   row-gap: 5px;
 }
 
-#report-period{
+label {
+  text-decoration: underline;
+}
+
+#report-period {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-#radio-btns-div{
+#radio-btns-div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -121,18 +120,340 @@ main{
   width: 60%;
 }
 
-#date-picker{
+.radio-labels-inputs > label {
+  text-decoration: none !important;
+}
+
+#date-picker {
   width: 40%;
 }
 
-#transactions-details{
-  border: rgb(71, 11, 11) solid 2px;
+#date-picker > label {
+  text-decoration: none !important;
 }
 
-#calculator-data{
-  border: rgb(11, 71, 19) solid 2px;
+#date-picker > input{
+  text-align: center;
 }
 
-#print-deduction{
-  border: rgb(11, 52, 71) solid 2px;
+#transactions-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#trans-details-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+#trans-details-textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100px;
+  max-height: 100px;
+  min-height: 100px;
+}
+
+#trans-details-inputs-div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.trans-lebel-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.trans-lebel-inputs > input {
+  width: 70%;
+}
+
+#calculator-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#calc-outputs {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.calculator-outputs-divs {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  column-gap: 10px;
+}
+
+output {
+  text-align: center;
+  width: 50%;
+  font-size: var(--font-size);
+}
+
+#print-deduction {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1%;
+}
+
+table > thead > tr > th {
+  text-align: right;
+  text-decoration: underline;
+}
+
+td > input {
+  width: 90%;
+}
+
+input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: var(--font-size);
+}
+
+textarea{
+  font-size: var(--font-size);
+}
+
+#print-checkbox-div {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#print-checkbox-div > input {
+  width: auto;
+}
+
+button{
+  font-size: var(--font-size);
+  
+}
+
+@media print {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    height: 100%;
+    color: var(--text-color);
+    background-color: var(--dark1);
+  }
+
+  #report-wrapper {
+    border: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    padding-top: 1%;
+    overflow-y: auto;
+    font-size: var(--font-size);
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2vh;
+    width: 100%;
+  }
+
+  #titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: underline;
+  }
+
+  main {
+    height: 80%;
+    width: 100%;
+    padding: 0 2% 0 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* justify-content: space-between; */
+  }
+
+  #client-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .labels-inputs {
+    display: grid;
+    grid-template-columns: 1.1fr 3fr;
+    column-gap: 5px;
+    row-gap: 5px;
+  }
+
+  label {
+    text-decoration: underline;
+  }
+
+  #report-period {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #radio-btns-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 60%;
+  }
+
+  .radio-labels-inputs > label {
+    text-decoration: none !important;
+  }
+
+  #date-picker {
+    width: 40%;
+  }
+
+  #date-picker > label {
+    text-decoration: none !important;
+  }
+
+  #date-picker > input{
+    text-align: center;
+  }
+
+  #transactions-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #trans-details-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  #trans-details-textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 100px;
+    max-height: 100px;
+    min-height: 100px;
+  }
+
+  #trans-details-inputs-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .trans-lebel-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .trans-lebel-inputs > input {
+    width: 70%;
+  }
+
+  #calculator-data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #calc-outputs {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+  }
+
+  .calculator-outputs-divs {
+    display: grid;
+    grid-template-columns: 1.1fr 2fr;
+  }
+
+  output {
+    text-align: center;
+    width: 50%;
+  }
+
+  #print-deduction {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1%;
+  }
+
+  table > thead > tr > th {
+    text-align: right;
+    text-decoration: underline;
+  }
+
+  td > input {
+    width: 90%;
+  }
+
+  input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: var(--font-size);
+  }
+
+  #print-checkbox-div {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  #print-checkbox-div > input {
+    width: auto;
+  }
+
+  button {
+    display: none;
+  }
 }

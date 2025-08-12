@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="report-wrapper">
         <header>
             <div id="titles">
                 <h1>גסאן יאסין חשבונאי יועץ מס מוסמך</h1>
@@ -28,10 +28,11 @@
                         <input type="text" id="case-num-input" placeholder="הזן מספר תיק">
                     </div>
                 </div>
-                <button id="print">הדפס</button>
+                <button id="print-btn" onclick="window.print()">הדפס</button>
             </div>
 
             <!-- Report Date -->
+             <div id="date-print" style="display: none;">123</div>
             <div id="report-period">
                 <div id="radio-btns-div">
                     <span>דיווח למע"מ</span>
@@ -39,21 +40,96 @@
                         <input type="radio" id="monthly-radio" value="1" name="choice">
                         <label for="monthly-radio">חודשי</label>
                     </div>
+                    <span> / </span>
                     <div class="radio-labels-inputs">
                         <input type="radio" id="2-months-radio" value="2" name="choice">
-                        <label for="name-input">דו חודשי</label>
+                        <label for="2-months-radio">דו חודשי</label>
                     </div>
                 </div>
-                <div id="date-picker" class="labels-inputs">
+                <div id="date-picker" class="labels-inputs" lang="he">
                     <label for="name-input">תאריך</label>
                     <input type="month" id="date-picker-input">
                 </div>
             </div>
 
 
-            <div id="transactions-details">Trans Details</div>
-            <div id="calculator-data">Calculator Data</div>
-            <div id="print-deduction">Print</div>
+            <div id="transactions-details">
+                <div id="trans-details-div">
+                    <label for="trans-details-textarea">פירוט עסקאות חייבות</label>
+                    <textarea name="trans-details-textarea" id="trans-details-textarea"></textarea>
+                </div>
+                <div id="trans-details-inputs-div">
+                    <div class="trans-lebel-inputs">
+                        <label for="overall-tans-input">סה"כ</label>
+                        <input type="text" id="overall-tans-input" placeholder='סה"כ'>
+                    </div>
+                    <div class="trans-lebel-inputs">
+                        <label for="no-tax-trans-input">עסקאות פטורות</label>
+                        <input type="text" id="no-tax-trans-input" placeholder="עסקאות פטורות">
+                    </div>
+                    <div class="trans-lebel-inputs">
+                        <label for="property-sales-input">מכירות נכסים כולל מע"מ</label>
+                        <input type="text" id="property-sales-input" placeholder='מכירות נכסים'>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="calculator-data">
+                <div id="calc-outputs">
+                    <div class="calculator-outputs-divs">
+                        <label for="out1">סה"כ עסקאות חייבות כולל מע"מ</label>
+                        <output id="out1">Output1</output>
+                    </div>
+                    <div class="calculator-outputs-divs">
+                        <label for="out2">עסקאות חייבות ללא מע"מ</label>
+                        <output id="out2">Output2</output>
+                    </div>
+                    <div class="calculator-outputs-divs">
+                        <label for="out3">מע"מ עסקאות 18%</label>
+                        <output id="out3">Output3</output>
+                    </div>
+                    <div class="calculator-outputs-divs">
+                        <label for="out4">תשומות על נכסים קבועים</label>
+                        <output id="out4">Output4</output>
+                    </div>
+                    <div class="calculator-outputs-divs">
+                        <label for="out5">תשומות רגילות אחרות</label>
+                        <output id="out5">Output5</output>
+                    </div>
+                    <div class="calculator-outputs-divs">
+                        <label for="out6">סכום לתשלום / החזר</label>
+                        <output id="out6">Output6</output>
+                    </div>
+                </div>
+                <button id="calulator">מחשבון</button>
+            </div>
+            <div id="print-deduction">
+                <div id="print-checkbox-div">
+                    <input id="open-print" type="checkbox">
+                    <label for="open-print">ניקוי במקור על ספקים</label>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>מס</th>
+                            <th>שם ספק</th>
+                            <th>מספר שיק</th>
+                            <th>סכום כולל</th>
+                            <th>סכום הניכוי</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td><input type="text" class="table-inputs"></td>
+                            <td><input type="text" class="table-inputs"></td>
+                            <td><input type="text" class="table-inputs"></td>
+                            <td><input type="text" class="table-inputs"></td>
+                            <td><input type="text" class="table-inputs"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
 </body>
