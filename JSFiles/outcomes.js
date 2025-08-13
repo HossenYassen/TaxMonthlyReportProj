@@ -31,6 +31,7 @@ vehicleIncomeList.addEventListener("input", () => {
     outputResults(out1, sum1 + sum2, 1);
     outputResults(out2, sum1 - sum1 * (0.18 / 1.18) + sum2 - sum2 * (0.12 / 1.18), 1);
     outputResults(out3, sum1 * (0.18 / 1.18) + sum2 * (0.12 / 1.18), 1);
+    outputResults(out4, sum2 * (0.12 / 1.18), 1)
     updateSummary(out3, 2);
 });
 
