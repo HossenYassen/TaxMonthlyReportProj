@@ -22,7 +22,7 @@
                 <div id="client-info-inputs-div">
                     <div class="labels-inputs">
                         <label for="name-input">שם לקוח</label>
-                        <input type="text" id="name-input" placeholder="הזן שם לקוח...">
+                        <input type="text" id="name-input" placeholder="הזן שם לקוח">
                     </div>
                     <div class="labels-inputs">
                         <label for="case-num-input">מספר תיק</label>
@@ -103,7 +103,7 @@
                         <output id="out6">Output6</output>
                     </div>
                 </div>
-                <button id="calulator">מחשבון</button>
+                <button id="calculator">מחשבון</button>
             </div>
             <div id="print-deduction">
                 <div id="print-checkbox-div">
@@ -154,18 +154,7 @@
             </div>
             <hr>
             <ol id="income-ol">
-                <li class="calc-inputs">
-                    <span class="index">1. </span>
-                    <input type="text" placeholder="0.00">
-                </li>
-                <li class="calc-inputs">
-                    <span class="index">2. </span>
-                    <input type="text" placeholder="0.00">
-                </li>
-                <li class="calc-inputs">
-                    <span class="index">3. </span>
-                    <input type="text" placeholder="0.00">
-                </li>
+                <!-- Filled With JS -->
             </ol>
         </fieldset>
         <fieldset id="outcomes">
@@ -199,12 +188,24 @@
                         <span class="index">3. </span>
                         <input type="text" placeholder="0.00">
                     </li>
+                    <li class="calc-inputs">
+                        <span class="index">4. </span>
+                        <input type="text" placeholder="0.00">
+                    </li>
+                    <li class="calc-inputs">
+                        <span class="index">5. </span>
+                        <input type="text" placeholder="0.00">
+                    </li>
+                    <li class="calc-inputs">
+                        <span class="index">6. </span>
+                        <input type="text" placeholder="0.00">
+                    </li>
                 </ol>
                 <fieldset id="vichels-outcoms">
                     <legend>הוצאות רכב</legend>
                     <div class="output-label-div">
-                        <label for="vichels-outcoms-out3">מע"מ הוצאות (18%)</label>
-                        <output id="vichels-outcoms-out3">0.00</output>
+                        <label for="vichels-outcoms-out">מע"מ הוצאות (12%)</label>
+                        <output id="vichels-outcoms-out">0.00</output>
                     </div>
                     <ol id="vichels-outcoms-ol">
                         <li class="calc-inputs">
@@ -253,6 +254,18 @@
                     <span class="index">3. </span>
                     <input type="text" placeholder="0.00">
                 </li>
+                <li class="calc-inputs">
+                    <span class="index">4. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+                <li class="calc-inputs">
+                    <span class="index">5. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
+                <li class="calc-inputs">
+                    <span class="index">6. </span>
+                    <input type="text" placeholder="0.00">
+                </li>
             </ol>
         </fieldset>
         <fieldset>
@@ -277,8 +290,14 @@
             </div>
             <hr>
             <button id="print-calc-data">הדפסת נתוני המחשבון</button>
+            <button id="to-report">לדו"ח</button>
         </fieldset>
     </fieldset>
+
+    <script type="module" src="./JSFiles/index.js"></script>
+    <script type="module" src="./JSFiles/incomes.js"></script>
+    <script type="module" src="./JSFiles/outcomes.js"></script>
+    <script type="module" src="./JSFiles/itemsOutcomes.js"></script>
 </body>
 
 </html>
