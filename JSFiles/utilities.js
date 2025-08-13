@@ -58,6 +58,14 @@ let summaryOut1 = document.getElementById("summary-out1");
 let summaryOut2 = document.getElementById("summary-out2");
 let summaryOut3 = document.getElementById("summary-out3");
 let summaryOut4 = document.getElementById("summary-out4");
+
+// Update data in report
+const reportOut1 = document.getElementById("out1");
+const reportOut2 = document.getElementById("out2");
+const reportOut3 = document.getElementById("out3");
+const reportOut4 = document.getElementById("out4");
+const reportOut5 = document.getElementById("out5");
+const reportOut6 = document.getElementById("out6");
 export const updateSummary = (out, idx) => {
     if (idx === 1) {
         outputResults(summaryOut1, out.value, 1);
@@ -65,8 +73,19 @@ export const updateSummary = (out, idx) => {
     else if (idx === 2) {
         outputResults(summaryOut2, out.value, 1);
     }
-    else{
+    else {
         outputResults(summaryOut3, out.value, 1);
     }
     outputResults(summaryOut4, parseFloat(summaryOut1.value) - parseFloat(summaryOut2.value) - parseFloat(summaryOut3.value), 1);
+    reportOut4.value = parseFloat(summaryOut2.value)
+    reportOut5.value = parseFloat(summaryOut3.value)
+    reportOut6.value = parseFloat(summaryOut4.value)
 }
+
+
+export const updateIncomeInReport = (out1, out2, out3) => {
+    reportOut1.value = out1.value;
+    reportOut2.value = out2.value;
+    reportOut3.value = out3.value;
+}
+

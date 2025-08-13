@@ -1,6 +1,6 @@
 'use strict'
 
-import { buildLi, getSum, outputResults, updateSummary } from "./utilities.js";
+import { buildLi, getSum, outputResults, updateIncomeInReport, updateSummary } from "./utilities.js";
 
 // Outputs elements
 const out1 = document.getElementById("income-out1");
@@ -18,6 +18,7 @@ incomeList.addEventListener("input", () => {
     outputResults(out2, sum, 1 / 1.18);
     outputResults(out3, sum, 0.18 / 1.18);
     updateSummary(out3, 1);
+    updateIncomeInReport(out1, out2, out3);
 });
 
 
