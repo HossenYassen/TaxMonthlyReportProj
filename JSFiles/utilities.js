@@ -89,3 +89,22 @@ export const updateIncomeInReport = (out1, out2, out3) => {
     reportOut3.value = out3.value;
 }
 
+// Moving To The Next Input
+document.addEventListener("DOMContentLoaded", () => {
+    const inputs = document.querySelectorAll('.calc-inputs input'); // Select all input fields inside the calculator
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                // Prevent the default behavior (form submission)
+                e.preventDefault();
+
+                // Move to the next input if it exists
+                if (inputs[index + 1]) {
+                    inputs[index + 1].focus();
+                }
+            }
+        });
+    });
+});
+
