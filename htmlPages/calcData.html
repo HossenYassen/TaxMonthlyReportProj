@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Stylesheets/calcPrint.css">
+    <title>הדפסת נתוני המחשבון</title>
+</head>
+<body>
+    <h1>נתוני המחשבון</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>הכנסות</th>
+                <th>הוצאות רגילות</th>
+                <th>הוצאות רכב</th>
+                <th>הוצאות ציוד</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="incomes-clm">
+                        <!-- Filled With JS -->
+                    </ol>
+                </td>
+                <td>
+                    <ol id="outcomes-clm">
+                        <!-- Filled With JS -->
+                    </ol>
+                </td>
+                <td>
+                    <ol id="vehicle-outcomes-clm">
+                        <!-- Filled With JS -->
+                    </ol>
+                </td>
+                <td>
+                    <ol id="items-outcomes-clm">
+                        <!-- Filled With JS -->
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Print Button -->
+    <button onclick="window.print()">Print to A4</button>
+
+    <script type="module" src="../JSFiles/calculatorDataPrint.js"></script>
+</body>
+</html>

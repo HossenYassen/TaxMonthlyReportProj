@@ -72,9 +72,10 @@ ol {
 .calc-inputs {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
+  padding: 5px;
 }
 
 .calc-inputs > span {

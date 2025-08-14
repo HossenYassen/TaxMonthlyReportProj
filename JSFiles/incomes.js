@@ -1,6 +1,6 @@
 'use strict'
 
-import { buildLi, getSum, outputResults, updateIncomeInReport, updateSummary } from "./utilities.js";
+import { buildLi, getSum, outputResults, tax, updateIncomeInReport, updateSummary } from "./utilities.js";
 
 // Outputs elements
 const out1 = document.getElementById("income-out1");
@@ -11,12 +11,12 @@ const out3 = document.getElementById("income-out3");
 const incomeList = document.getElementById("income-ol");
 buildLi(incomeList);
 
-const inputs = document.querySelectorAll("#income-ol li input");
+export const inputs = document.querySelectorAll("#income-ol li input");
 incomeList.addEventListener("input", () => {
     const sum = getSum(inputs);
     outputResults(out1, sum, 1);
-    outputResults(out2, sum, 1 / 1.18);
-    outputResults(out3, sum, 0.18 / 1.18);
+    outputResults(out2, sum, 1 / (1 + tax));
+    outputResults(out3, sum, tax / (1 + tax));
     updateSummary(out3, 1);
     updateIncomeInReport(out1, out2, out3);
 });
@@ -24,20 +24,4 @@ incomeList.addEventListener("input", () => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const inputs = document.querySelectorAll('.calc-inputs input'); // Select all input fields inside the calculator
 
-    inputs.forEach((input, index) => {
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                // Prevent the default behavior (form submission)
-                e.preventDefault();
-
-                // Move to the next input if it exists
-                if (inputs[index + 1]) {
-                    inputs[index + 1].focus();
-                }
-            }
-        });
-    });
-});

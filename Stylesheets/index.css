@@ -255,6 +255,7 @@ output {
 
 output:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
 }
 
 output:empty {
@@ -372,6 +373,10 @@ button:disabled {
     height: 100%;
     color: var(--text-color);
     background-color: var(--dark1);
+    width: 21cm;
+    height: 29.7cm;
+    margin: 0;
+    padding: 20mm;
   }
 
   #report-wrapper {

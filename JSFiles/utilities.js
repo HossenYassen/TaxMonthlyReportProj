@@ -1,6 +1,7 @@
 'use strict'
 
 // Constants:
+export const tax = 0.18;
 export const numOfLi = 100;
 
 
