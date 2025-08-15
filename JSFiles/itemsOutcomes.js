@@ -19,3 +19,9 @@ incomeList.addEventListener("input", () => {
     outputResults(out3, sum, tax / (1+tax));
     updateSummary(out3, 3);
 });
+
+export const getItemsOutcomes = ()=>{
+    return[...inputs]
+    .filter(data => data.value !== "")
+    .map(data => data.value);
+}

@@ -11,7 +11,7 @@ const out3 = document.getElementById("income-out3");
 const incomeList = document.getElementById("income-ol");
 buildLi(incomeList);
 
-export const inputs = document.querySelectorAll("#income-ol li input");
+const inputs = document.querySelectorAll("#income-ol li input");
 incomeList.addEventListener("input", () => {
     const sum = getSum(inputs);
     outputResults(out1, sum, 1);
@@ -20,6 +20,12 @@ incomeList.addEventListener("input", () => {
     updateSummary(out3, 1);
     updateIncomeInReport(out1, out2, out3);
 });
+
+export const getIncomes = ()=>{
+    return [...inputs]
+    .filter(data => data.value !== "")
+    .map(data => data.value);
+}
 
 
 

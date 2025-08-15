@@ -35,6 +35,18 @@ vehicleIncomeList.addEventListener("input", () => {
     updateSummary(out3, 2);
 });
 
+export const getOutcomes = ()=>{
+    return [...inputs]
+    .filter(data => data.value !== "")
+    .map(data => data.value);
+}
+
+export const getCarOutcomes = ()=>{
+    return [...vehcileInputs]
+    .filter(data => data.value !== "")
+    .map(data => data.value);
+}
+
 
 
 

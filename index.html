@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Stylesheets/index.css">
     <link rel="stylesheet" href="./Stylesheets/calculator.css">
+    <link rel="stylesheet" href="../Stylesheets/calcPrint.css">
     <title>Tax Report Generator</title>
 </head>
 
@@ -237,11 +238,30 @@
         </fieldset>
     </fieldset>
 
-    <script type="module" src="./JSFiles/index.js"></script>
-    <script type="module" src="./JSFiles/incomes.js"></script>
-    <script type="module" src="./JSFiles/outcomes.js"></script>
-    <script type="module" src="./JSFiles/itemsOutcomes.js"></script>
-    <script type="module" src="./JSFiles/reportPrinting.js"></script>
+    <div id="calculator-data-sec">
+        <button id="printCalcDataBtn">Print to A4</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>הכנסות</th>
+                    <th>הוצאות רגילות</th>
+                    <th>הוצאות רכב</th>
+                    <th>הוצאות ציוד</th>
+                </tr>
+            </thead>
+            <tbody id="calc-tbody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module" src="./JSFiles/index.js" defer></script>
+    <script type="module" src="./JSFiles/incomes.js" defer></script>
+    <script type="module" src="./JSFiles/outcomes.js" defer></script>
+    <script type="module" src="./JSFiles/itemsOutcomes.js" defer></script>
+    <script type="module" src="./JSFiles/reportPrinting.js" defer></script>
+    <script type="module" src="./JSFiles/printCalculatorData.js" defer></script>
 </body>
 
 </html>
