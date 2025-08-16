@@ -4,6 +4,8 @@ import { getIncomes } from "./incomes.js";
 import { getItemsOutcomes } from "./itemsOutcomes.js";
 import { getOutcomes, getCarOutcomes } from "./outcomes.js";
 
+const reportSec = document.getElementById("report-wrapper");
+
 // Make Calculator Data Table hidden by default
 const calcDataSec = document.getElementById("calculator-data-sec");
 calcDataSec.style.display = "none";
@@ -31,7 +33,7 @@ printDataBtn.addEventListener("click", () => {
 
     // Hide report and calculator sections
     reportSec.style.display = "none";
-    calcSec.style.display = "none";
+    calcDataSec.style.display = "none";
 
     // Display the section and scroll to it
     calcDataSec.style.display = "block";
