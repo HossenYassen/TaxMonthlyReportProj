@@ -38,5 +38,49 @@ function printDivInNewWindow(divId, e) {
 // Add event listener to button
 printBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    printDivInNewWindow("report-wrapper");
+
+    const checkBox = document.getElementById("open-print");
+    checkBox.style.display = "none";
+
+    // Hide report-period
+    const reportPeriod = document.getElementById("report-period");
+    reportPeriod.style.display = "none";
+
+    // Get selected radio button
+    const radioChoice = document.querySelector('input[name="choice"]:checked');
+    let choiceText = "";
+
+    if (radioChoice) {
+        choiceText = radioChoice.value === "1" ? "חודשי" : "דו חודשי";
+    } else {
+        choiceText = "לא נבחר סוג דיווח";
+    }
+
+    // Get and format date
+    const dateInput = document.getElementById("date-picker-input").value;
+    let formattedDate = "";
+
+    if (dateInput) {
+        const [year, month] = dateInput.split("-");
+        formattedDate = `${month}/${year}`;
+    } else {
+        formattedDate = "תאריך לא נבחר";
+    }
+
+    // Set and show date-print
+    const datePrintDiv = document.getElementById("date-print");
+    datePrintDiv.innerHTML = `<strong>סוג דיווח:</strong> ${choiceText} | <strong>תאריך:</strong> ${formattedDate}`;
+    datePrintDiv.style.display = "block";
+
+    // Trigger print and restore after short delay
+    setTimeout(() => {
+        printDivInNewWindow("report-wrapper");
+
+        // After print
+        datePrintDiv.style.display = "none";
+        reportPeriod.style.display = "flex";
+        checkBox.style.display = "flex";
+    }, 100); // Slight delay to allow UI update
 });
+
+

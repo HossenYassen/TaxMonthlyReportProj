@@ -20,8 +20,7 @@
   --buttons-width: 35px;
   --buttons-responsive-width: 30px;
   --profile-pic-w: 64px;
-  --box-shadow-effects: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
-    0 1.5px 6px 0 rgba(60, 60, 60, 0.11);
+  --box-shadow-effects: 0 5px 10px rgba(0, 0, 0, 0.25), 0 1.5px 6px rgba(60, 60, 60, 0.11);
 }
 
 *,
@@ -45,81 +44,65 @@ body {
   height: 100%;
   color: var(--text-color);
   background-color: var(--dark1);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1%;
 }
 
 #report-wrapper {
-  border: black 2px solid;
   width: 60vw;
+  padding-top: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3vh;
-  padding-top: 1%;
-  overflow-y: auto;
-  overflow: hidden;
   font-size: var(--font-size);
-  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid black;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
-header {
+header, #titles {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  width: 100%;
   gap: 2vh;
-  width: 100%;
-}
-
-#titles {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   text-decoration: underline;
 }
 
 main {
-  height: 80%;
   width: 100%;
-  padding: 0 2% 0 2%;
+  padding: 0 2%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 #client-info {
+  margin-top: 3vh;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 45%;
+  justify-content: space-between;
 }
 
-#client-info > button {
-  padding: 1.5rem !important;
-  height: fit-content;
-  align-self: center;
+#client-info-inputs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .labels-inputs {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  column-gap: 10px;
-  row-gap: 5px;
-  justify-content: center;
-  align-items: center;
+  gap: 5px 10px;
 }
 
 #report-period {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
 #radio-btns-div {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
   gap: 10px;
   width: 60%;
@@ -127,28 +110,11 @@ main {
 
 .radio-labels-inputs {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
   align-items: center;
-  justify-content: center;
   gap: 10px;
 }
 
-.radio-labels-inputs > label {
-  text-decoration: none !important;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0;
-}
-
 .radio-labels-inputs > input[type="radio"] {
-  border: none;
-  transition: none;
-  box-shadow: none;
-}
-
-.radio-labels-inputs > input[type="radio"]:hover {
   border: none;
   box-shadow: none;
 }
@@ -157,18 +123,9 @@ main {
   width: 40%;
 }
 
-#date-picker > label {
-  text-decoration: none !important;
-}
-
-#date-picker > input {
-  text-align: center;
-}
-
 #transactions-details {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
 }
 
@@ -176,31 +133,23 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   gap: 5px;
 }
 
 #trans-details-textarea {
   width: 100%;
-  max-width: 100%;
-  min-width: 100%;
   height: 100px;
-  max-height: 100px;
-  min-height: 100px;
+  resize: vertical;
 }
 
 #trans-details-inputs-div {
-  width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
 }
 
 .trans-lebel-inputs {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 5px;
 }
 
@@ -209,15 +158,12 @@ main {
 }
 
 #calculator-data {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 #calc-outputs {
-  width: 100%;
-  height: auto;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   gap: 5px;
@@ -227,45 +173,10 @@ main {
   display: grid;
   grid-template-columns: 1.3fr 2.2fr;
   align-items: center;
-  justify-content: center;
-}
-
-.calculator-outputs-divs > label {
-  width: 100%;
 }
 
 .calculator-outputs-divs > output {
   width: 50%;
-}
-
-output {
-  width: 100%;
-  padding: 12px 15px;
-  font-size: 16px;
-  font-weight: 400;
-  background-color: #f9f9f9;
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-  pointer-events: none;
-  text-align: center;
-}
-
-output:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transform: scale(1.1);
-}
-
-output:empty {
-  color: #bbb;
-}
-
-output.large {
-  font-size: 18px;
-  font-weight: 500;
-  padding: 15px 20px;
 }
 
 #print-deduction {
@@ -274,27 +185,34 @@ output.large {
   padding-bottom: 1%;
 }
 
-table > thead > tr > th {
+#print-checkbox-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+table thead th {
   text-align: right;
   text-decoration: underline;
 }
 
-td > input {
+td input {
   width: 90%;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 12px 15px;
-  font-size: 16px;
-  font-weight: 400;
+/* Form elements */
+
+input, textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
   background-color: #f4f6f9;
   color: #333;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  transition: all 0.3s ease-in-out;
+  border-radius: var(--border-rad);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 input:focus {
@@ -307,6 +225,7 @@ input:focus {
 input:hover {
   border-color: #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease-in-out;
 }
 
 input:invalid {
@@ -314,44 +233,48 @@ input:invalid {
   box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
 }
 
-input.large {
-  font-size: 18px;
-  font-weight: 500;
-  padding: 15px 20px;
-}
-
 textarea {
-  font-size: var(--font-size);
+  resize: vertical;
 }
 
-#print-checkbox-div {
-  margin-bottom: 5px;
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  align-items: center;
-  justify-content: flex-start;
+output {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
 }
 
-#print-checkbox-div > input {
-  width: auto;
+output:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+
+output:empty {
+  color: #bbb;
 }
 
 button {
   font-size: var(--font-size);
   padding: 0.5rem 1rem;
-  background-color: #4caf50;
+  background-color: var(--ok-btn-color);
   border: none;
   border-radius: var(--border-rad);
   color: white;
   cursor: pointer;
   box-shadow: var(--box-shadow-effects);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #45a049;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  background-color: var(--ok-btn-color-hover);
 }
 
 button:active {
@@ -365,225 +288,17 @@ button:disabled {
 }
 
 @media print {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 100vh;
-    height: 100%;
-    color: var(--text-color);
-    background-color: var(--dark1);
-    width: 21cm;
-    height: 29.7cm;
-    margin: 0;
-    padding: 20mm;
-  }
-
+  body,
   #report-wrapper {
-    border: none;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3vh;
-    padding-top: 1%;
-    overflow-y: auto;
-    font-size: var(--font-size);
-  }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2vh;
-    width: 100%;
-  }
-
-  #titles {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    text-decoration: underline;
-  }
-
-  main {
-    height: 80%;
-    width: 100%;
-    padding: 0 2% 0 2%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  #client-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .labels-inputs {
-    display: grid;
-    grid-template-columns: 1.1fr 3fr;
-    column-gap: 5px;
-    row-gap: 5px;
-  }
-
-  label {
-    text-decoration: underline;
-  }
-
-  #report-period {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  #radio-btns-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 10px;
-    width: 60%;
-  }
-
-  .radio-labels-inputs > label {
-    text-decoration: none !important;
-  }
-
-  #date-picker {
-    width: 40%;
-  }
-
-  #date-picker > label {
-    text-decoration: none !important;
-  }
-
-  #date-picker > input {
-    text-align: center;
-  }
-
-  #transactions-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  #trans-details-div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  #trans-details-textarea {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-    height: 100px;
-    max-height: 100px;
-    min-height: 100px;
-  }
-
-  #trans-details-inputs-div {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-
-  .trans-lebel-inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .trans-lebel-inputs > input {
-    width: 70%;
-  }
-
-  #calculator-data {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #calc-outputs {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    gap: 5px;
-  }
-
-  .calculator-outputs-divs {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-  }
-
-  output {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
-  #print-deduction {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1%;
-  }
-
-  table > thead > tr > th {
-    text-align: right;
-    text-decoration: underline;
-  }
-
-  td > input {
-    width: 90%;
-  }
-
-  input {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-size: var(--font-size);
-  }
-
-  #print-checkbox-div {
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  #print-checkbox-div > input {
-    width: auto;
-  }
-
-  button {
-    display: none;
-  }
-
-  h1,
-  button {
-    display: none;
-  }
-
-  body {
     width: 21cm;
     height: 29.7cm;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  button {
+    display: none;
   }
 
   table {

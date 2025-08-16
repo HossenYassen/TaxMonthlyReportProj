@@ -20,40 +20,39 @@
         </header>
         <main>
             <div id="client-info">
-                <div id="client-info-inputs-div">
-                    <div class="labels-inputs">
-                        <label for="name-input">שם לקוח</label>
-                        <input type="text" id="name-input" placeholder="הזן שם לקוח">
+                    <div id="client-info-inputs-div">
+                        <div class="labels-inputs">
+                            <label for="name-input">שם לקוח</label>
+                            <input type="text" id="name-input" placeholder="הזן שם לקוח" required>
+                        </div>
+                        <div class="labels-inputs">
+                            <label for="case-num-input">מספר תיק</label>
+                            <input type="text" id="case-num-input" placeholder="הזן מספר תיק" required>
+                        </div>
                     </div>
-                    <div class="labels-inputs">
-                        <label for="case-num-input">מספר תיק</label>
-                        <input type="text" id="case-num-input" placeholder="הזן מספר תיק">
-                    </div>
-                </div>
-                <button id="print-btn">הדפס</button>
+                <button id="print-btn" type="button">הדפס</button>
             </div>
 
-            <!-- Report Date -->
             <div id="date-print" style="display: none;">123</div>
+
             <div id="report-period">
                 <div id="radio-btns-div">
                     <span>דיווח למע"מ</span>
-                    <div class="radio-labels-inputs">
+                    <label class="radio-labels-inputs">
                         <input type="radio" id="monthly-radio" value="1" name="choice">
-                        <label for="monthly-radio">חודשי</label>
-                    </div>
+                        חודשי
+                    </label>
                     <span> / </span>
-                    <div class="radio-labels-inputs">
+                    <label class="radio-labels-inputs">
                         <input type="radio" id="2-months-radio" value="2" name="choice">
-                        <label for="2-months-radio">דו חודשי</label>
-                    </div>
+                        דו חודשי
+                    </label>
                 </div>
                 <div id="date-picker" class="labels-inputs" lang="he">
-                    <label for="name-input">תאריך</label>
-                    <input type="month" id="date-picker-input">
+                    <label for="date-picker-input">תאריך</label>
+                    <input type="month" id="date-picker-input" required>
                 </div>
             </div>
-
 
             <div id="transactions-details">
                 <div id="trans-details-div">
@@ -76,39 +75,39 @@
                 </div>
             </div>
 
-
             <div id="calculator-data">
                 <div id="calc-outputs">
                     <div class="calculator-outputs-divs">
                         <label for="out1">סה"כ עסקאות חייבות כולל מע"מ</label>
-                        <output id="out1"></output>
+                        <output id="out1">0.00</output>
                     </div>
                     <div class="calculator-outputs-divs">
                         <label for="out2">עסקאות חייבות ללא מע"מ</label>
-                        <output id="out2"></output>
+                        <output id="out2">0.00</output>
                     </div>
                     <div class="calculator-outputs-divs">
                         <label for="out3">מע"מ עסקאות 18%</label>
-                        <output id="out3"></output>
+                        <output id="out3">0.00</output>
                     </div>
                     <div class="calculator-outputs-divs">
                         <label for="out4">תשומות על נכסים קבועים</label>
-                        <output id="out4"></output>
+                        <output id="out4">0.00</output>
                     </div>
                     <div class="calculator-outputs-divs">
                         <label for="out5">תשומות רגילות אחרות</label>
-                        <output id="out5"></output>
+                        <output id="out5">0.00</output>
                     </div>
                     <div class="calculator-outputs-divs">
                         <label for="out6">סכום לתשלום / החזר</label>
-                        <output id="out6"></output>
+                        <output id="out6">0.00</output>
                     </div>
                 </div>
-                <button id="calculator">מחשבון</button>
+                <button id="calculator" type="button">מחשבון</button>
             </div>
+
             <div id="print-deduction">
                 <div id="print-checkbox-div">
-                    <input id="open-print" type="checkbox" unchecked>
+                    <input id="open-print" type="checkbox">
                     <label for="open-print">ניקוי במקור על ספקים</label>
                 </div>
                 <table id="suppliers-table">
@@ -139,7 +138,7 @@
         <legend>מחשבון</legend>
         <fieldset>
             <legend>הכנסות</legend>
-            <div class="output-section">
+            <div class="output-div">
                 <div class="output-label-div">
                     <label for="income-out1">סה"כ הכנסות חייבות כולל מע"מ</label>
                     <output id="income-out1">0.00</output>
@@ -154,13 +153,11 @@
                 </div>
             </div>
             <hr>
-            <ol id="income-ol">
-                <!-- Filled With JS -->
-            </ol>
+            <ol id="income-ol"></ol>
         </fieldset>
         <fieldset id="outcomes">
             <legend>הוצאות</legend>
-            <div class="output-section">
+            <div class="output-div">
                 <div class="output-label-div">
                     <label for="outcome-out1">סה"כ הוצאות חייבות כולל מע"מ</label>
                     <output id="outcome-out1">0.00</output>
@@ -175,25 +172,21 @@
                 </div>
             </div>
             <hr>
-            <div id="outcomes-input-section">
-                <ol id="outcomes-ol">
-                    <!-- Filled With JS -->
-                </ol>
+            <div id="outcomes-input-div">
+                <ol id="outcomes-ol"></ol>
                 <fieldset id="vichels-outcoms">
                     <legend>הוצאות רכב</legend>
                     <div class="output-label-div">
                         <label for="vichels-outcoms-out">מע"מ הוצאות (12%)</label>
                         <output id="vichels-outcoms-out">0.00</output>
                     </div>
-                    <ol id="vichels-outcoms-ol">
-                        <!-- Filled With JS -->
-                    </ol>
+                    <ol id="vichels-outcoms-ol"></ol>
                 </fieldset>
             </div>
         </fieldset>
         <fieldset>
             <legend>הוצאות ציוד</legend>
-            <div class="output-section">
+            <div class="output-div">
                 <div class="output-label-div">
                     <label for="items-outcomes-out1">סה"כ הוצאות ציוד חייבות כולל מע"מ</label>
                     <output id="items-outcomes-out1">0.00</output>
@@ -208,13 +201,11 @@
                 </div>
             </div>
             <hr>
-            <ol id="items-outcomes-ol">
-                <!-- Filled With JS -->
-            </ol>
+            <ol id="items-outcomes-ol"></ol>
         </fieldset>
         <fieldset>
             <legend>סיכום</legend>
-            <div class="output-section">
+            <div class="output-div">
                 <div class="output-label-div">
                     <label for="summary-out1">מע"מ עסקאות (18%)</label>
                     <output id="summary-out1">0.00</output>
@@ -233,14 +224,15 @@
                 </div>
             </div>
             <hr>
-            <button id="print-calc-data">הדפסת נתוני המחשבון</button>
-            <button id="to-report">לדו"ח</button>
+            <button id="print-calc-data" type="button">הדפסת נתוני המחשבון</button>
+            <button id="to-report" type="button">לדו"ח</button>
         </fieldset>
     </fieldset>
 
     <div id="calculator-data-sec">
-        <button id="printCalcDataBtn">Print to A4</button>
+        <button id="printCalcDataBtn" type="button">Print to A4</button>
         <table>
+            <caption>טבלת תוצאות חישוב</caption>
             <thead>
                 <tr>
                     <th>#</th>
@@ -250,18 +242,16 @@
                     <th>הוצאות ציוד</th>
                 </tr>
             </thead>
-            <tbody id="calc-tbody">
-
-            </tbody>
+            <tbody id="calc-tbody"></tbody>
         </table>
     </div>
 
-    <script type="module" src="./JSFiles/index.js" defer></script>
-    <script type="module" src="./JSFiles/incomes.js" defer></script>
-    <script type="module" src="./JSFiles/outcomes.js" defer></script>
-    <script type="module" src="./JSFiles/itemsOutcomes.js" defer></script>
-    <script type="module" src="./JSFiles/reportPrinting.js" defer></script>
-    <script type="module" src="./JSFiles/printCalculatorData.js" defer></script>
+    <script type="module" src="./JSFiles/index.js"></script>
+    <script type="module" src="./JSFiles/incomes.js"></script>
+    <script type="module" src="./JSFiles/outcomes.js"></script>
+    <script type="module" src="./JSFiles/itemsOutcomes.js"></script>
+    <script type="module" src="./JSFiles/reportPrinting.js"></script>
+    <script type="module" src="./JSFiles/printCalculatorData.js"></script>
 </body>
 
 </html>

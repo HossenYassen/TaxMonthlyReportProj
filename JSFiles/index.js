@@ -33,3 +33,94 @@ checkBox.addEventListener("change", () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const tableBody = document.querySelector('#suppliers-table tbody');
+
+    function createNewRow() {
+        const newRow = document.createElement('tr');
+        newRow.classList.add('table-row', 'new-row');
+
+        for (let i = 0; i < 5; i++) {
+            const td = document.createElement('td');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.classList.add('table-inputs');
+
+            input.addEventListener('input', onInputChange);
+            input.addEventListener('keydown', onKeyDown);
+
+            td.appendChild(input);
+            newRow.appendChild(td);
+        }
+
+        tableBody.appendChild(newRow);
+
+        newRow.querySelector('input').focus();
+    }
+
+    function isRowFull(row) {
+        const inputs = row.querySelectorAll('input');
+        return Array.from(inputs).every(input => input.value.trim() !== '');
+    }
+
+    function onInputChange(event) {
+        const currentRow = event.target.closest('tr');
+        if (isRowFull(currentRow)) {
+            const allRows = Array.from(tableBody.querySelectorAll('tr'));
+            const isLastRow = currentRow === allRows[allRows.length - 1];
+            if (isLastRow) {
+                createNewRow();
+            }
+        }
+    }
+
+    function onKeyDown(event) {
+        const input = event.target;
+        const currentCell = input.closest('td');
+        const currentRow = input.closest('tr');
+        const inputs = Array.from(currentRow.querySelectorAll('input'));
+        const currentIndex = inputs.indexOf(input);
+
+        if (event.key === 'Enter') {
+            event.preventDefault();
+
+            if (currentIndex < inputs.length - 1) {
+                inputs[currentIndex + 1].focus();
+            } else {
+                const allRows = Array.from(tableBody.querySelectorAll('tr'));
+                const isLastRow = currentRow === allRows[allRows.length - 1];
+
+                if (isLastRow) {
+                    createNewRow();
+                } else {
+                    const nextRow = allRows[allRows.indexOf(currentRow) + 1];
+                    if (nextRow) {
+                        nextRow.querySelector('input').focus();
+                    }
+                }
+            }
+        }
+
+        if (event.key === 'Escape') {
+            const isNewRow = currentRow.classList.contains('new-row');
+            if (isNewRow && currentIndex === 0) {
+                currentRow.remove();
+
+                const allRows = Array.from(tableBody.querySelectorAll('tr'));
+                const prevRow = allRows[allRows.length - 1];
+                if (prevRow) {
+                    const prevInputs = prevRow.querySelectorAll('input');
+                    prevInputs[prevInputs.length - 1].focus();
+                }
+            }
+        }
+    }
+
+    const existingInputs = document.querySelectorAll('.table-inputs');
+    existingInputs.forEach(input => {
+        input.addEventListener('input', onInputChange);
+        input.addEventListener('keydown', onKeyDown);
+    });
+});
+
+
