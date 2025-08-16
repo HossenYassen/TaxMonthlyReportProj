@@ -288,20 +288,57 @@ button:disabled {
 }
 
 @media print {
-  body,
-  #report-wrapper {
-    width: 21cm;
-    height: 29.7cm;
-    padding: 0;
-    margin: 0;
-    border: none;
+  * {
+    box-sizing: border-box;
   }
 
-  button {
-    display: none;
+  html, body {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background-color: white;
+  }
+
+  body {
+    display: block;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  #report-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  header, main, footer {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  button,
+  #non-printable,
+  .no-print {
+    display: none !important;
   }
 
   table {
     width: 100%;
+    border-collapse: collapse;
+  }
+
+  td, th {
+    padding: 0.3em;
+  }
+
+  input, textarea, output {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
   }
 }

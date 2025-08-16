@@ -6,7 +6,7 @@
   width: 21cm;
   height: 29.7cm;
   margin: 0;
-  padding: 20mm;
+  padding:0 3mm 0 20mm;
 }
 
 #calculator-data-sec table {

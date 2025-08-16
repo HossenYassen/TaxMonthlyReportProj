@@ -30,57 +30,60 @@ function printDivInNewWindow(divId, e) {
     // Wait for the new window to load before calling print
     printWindow.document.close(); // Close the document for further modifications
     printWindow.onload = function () {
-         printWindow.print();
-         printWindow.close();
+        printWindow.print();
+        printWindow.close();
     };
 }
 
-// Add event listener to button
 printBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
+    const nameInput = document.getElementById("name-input");
+    const caseInput = document.getElementById("case-num-input");
+    const dateInput = document.getElementById("date-picker-input");
+    const radioChoice = document.querySelector('input[name="choice"]:checked');
+
+    if (!nameInput || nameInput.value.trim() === "") {
+        alert("יש להזין שם לקוח.");
+        return;
+    }
+
+    if (!caseInput || caseInput.value.trim() === "") {
+        alert("יש להזין מספר תיק.");
+        return;
+    }
+
+    if (!radioChoice) {
+        alert("יש לבחור סוג דיווח (חודשי או דו חודשי).");
+        return;
+    }
+
+    if (!dateInput || dateInput.value.trim() === "") {
+        alert("יש לבחור תאריך.");
+        return;
+    }
+
+    // Proceed with printing logic
     const checkBox = document.getElementById("open-print");
     checkBox.style.display = "none";
 
-    // Hide report-period
     const reportPeriod = document.getElementById("report-period");
     reportPeriod.style.display = "none";
 
-    // Get selected radio button
-    const radioChoice = document.querySelector('input[name="choice"]:checked');
-    let choiceText = "";
+    const choiceText = radioChoice.value === "1" ? "חודשי" : "דו חודשי";
 
-    if (radioChoice) {
-        choiceText = radioChoice.value === "1" ? "חודשי" : "דו חודשי";
-    } else {
-        choiceText = "לא נבחר סוג דיווח";
-    }
+    const [year, month] = dateInput.value.split("-");
+    const formattedDate = `${month}/${year}`;
 
-    // Get and format date
-    const dateInput = document.getElementById("date-picker-input").value;
-    let formattedDate = "";
-
-    if (dateInput) {
-        const [year, month] = dateInput.split("-");
-        formattedDate = `${month}/${year}`;
-    } else {
-        formattedDate = "תאריך לא נבחר";
-    }
-
-    // Set and show date-print
     const datePrintDiv = document.getElementById("date-print");
     datePrintDiv.innerHTML = `<strong>סוג דיווח:</strong> ${choiceText} | <strong>תאריך:</strong> ${formattedDate}`;
     datePrintDiv.style.display = "block";
 
-    // Trigger print and restore after short delay
     setTimeout(() => {
         printDivInNewWindow("report-wrapper");
 
-        // After print
         datePrintDiv.style.display = "none";
         reportPeriod.style.display = "flex";
         checkBox.style.display = "flex";
-    }, 100); // Slight delay to allow UI update
+    }, 100);
 });
-
-
