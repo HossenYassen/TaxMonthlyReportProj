@@ -1,43 +1,11 @@
-'use strict'
+'use strict';
 
 const printBtn = document.getElementById("print-btn");
-
-function printDivInNewWindow(divId, e) {
-    var divContent = document.getElementById(divId).innerHTML;
-
-    // Open a new window
-    var printWindow = window.open('', '_blank', 'width=1000,height=800');
-
-    // Get all the styles from the original page
-    var styles = Array.from(document.styleSheets)
-        .map(sheet => {
-            if (sheet.cssRules) {
-                return Array.from(sheet.cssRules)
-                    .map(rule => rule.cssText)
-                    .join('');
-            }
-            return '';
-        })
-        .join('');
-
-    // Write the content and styles to the new window
-    printWindow.document.write('<html lang="he" dir="rtl"><head><title>Print Content</title>');
-    printWindow.document.write('<style>' + styles + '</style>');
-    printWindow.document.write('</head><body>');
-    printWindow.document.write(divContent); // Insert the div content
-    printWindow.document.write('</body></html>');
-
-    // Wait for the new window to load before calling print
-    printWindow.document.close(); // Close the document for further modifications
-    printWindow.onload = function () {
-        printWindow.print();
-        printWindow.close();
-    };
-}
 
 printBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
+    // Validation
     const nameInput = document.getElementById("name-input");
     const caseInput = document.getElementById("case-num-input");
     const dateInput = document.getElementById("date-picker-input");
@@ -63,15 +31,8 @@ printBtn.addEventListener("click", (e) => {
         return;
     }
 
-    // Proceed with printing logic
-    const checkBox = document.getElementById("open-print");
-    checkBox.style.display = "none";
-
-    const reportPeriod = document.getElementById("report-period");
-    reportPeriod.style.display = "none";
-
+    // Format report info
     const choiceText = radioChoice.value === "1" ? "חודשי" : "דו חודשי";
-
     const [year, month] = dateInput.value.split("-");
     const formattedDate = `${month}/${year}`;
 
@@ -79,11 +40,31 @@ printBtn.addEventListener("click", (e) => {
     datePrintDiv.innerHTML = `<strong>סוג דיווח:</strong> ${choiceText} | <strong>תאריך:</strong> ${formattedDate}`;
     datePrintDiv.style.display = "block";
 
-    setTimeout(() => {
-        printDivInNewWindow("report-wrapper");
+    const elementsToHide = [
+        document.getElementById("calulator-wrapper"),
+        document.getElementById("calculator-data-sec"),
+        document.getElementById("report-period"),
+        document.getElementById("open-print"),
+        printBtn
+    ];
 
+    // Hide all extra elements before printing
+    elementsToHide.forEach(el => {
+        if (el) el.style.display = "none";
+    });
+
+    // Trigger print
+    window.print();
+
+    // Restore UI after printing
+    window.onafterprint = () => {
         datePrintDiv.style.display = "none";
-        reportPeriod.style.display = "flex";
-        checkBox.style.display = "flex";
-    }, 100);
+        elementsToHide.forEach(el => {
+            if (el && el.id === "report-period") {
+                el.style.display = "flex";
+            } else if (el) {
+                el.style.display = "block";
+            }
+        });
+    };
 });
