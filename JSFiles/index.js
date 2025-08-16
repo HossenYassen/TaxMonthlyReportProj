@@ -123,4 +123,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+const ols = [
+  document.getElementById('income-ol'),
+  document.getElementById('outcomes-ol'),
+  document.getElementById('vichels-outcoms-ol'),
+  document.getElementById('items-outcomes-ol')
+];
+
+document.addEventListener('keydown', (e) => {
+  const active = document.activeElement;
+
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    let index = ols.findIndex(ol => ol.contains(active) || ol === active);
+    if (index === -1) return;
+
+    if (e.key === 'ArrowRight') index = (index - 1) % ols.length;
+    if (e.key === 'ArrowLeft') index = (index + 1 + ols.length) % ols.length;
+
+    // Get first focusable element in the new <ol>
+    const nextOl = ols[index];
+    const firstFocusable = nextOl.querySelector('input, textarea, [tabindex]:not([tabindex="-1"])');
+    if (firstFocusable) firstFocusable.focus();
+
+    e.preventDefault(); // Prevent cursor move inside text fields
+  }
+});
+
 
